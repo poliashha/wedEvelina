@@ -625,9 +625,10 @@ body {
   text-decoration: none;
 }
 
-.inst-href{
-  display: inline-block;
-  
+
+
+.inst-href object {
+  pointer-events: none;
 }
 
 @media (width<412px) {
