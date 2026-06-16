@@ -148,7 +148,7 @@ btn.addEventListener("click", () => {
 // Если автовоспроизведение заблокировано - запускаем по первому клику в любом месте
 
 
-const newYear = new Date(2026, 7, 14, 16, 0, 0).getTime();
+const newYear = new Date(2026, 8, 9, 12, 30, 0).getTime();
 startCountdown(newYear);
 
 const button = document.querySelector(".button");
