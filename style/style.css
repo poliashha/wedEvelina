@@ -652,7 +652,7 @@ body {
   position: absolute;
   z-index: 2;
   top:32px;
-  left: 95px;
+  left: 90px;
   opacity: 0;
   transform: scale(0.5) ;
   transition: all 1.2s ease;
