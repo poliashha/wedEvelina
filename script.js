@@ -177,3 +177,59 @@ function initScrollAnimation() {
 }
 document.addEventListener("DOMContentLoaded", initScrollAnimation);
 
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll(".box-text");
+
+  // Создаём наблюдатель за пересечениями
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Если элемент появился в зоне видимости
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.2, // элемент считается видимым, когда 20% его площади на экране
+      rootMargin: "0px 0px -50px 0px", // небольшой отступ для более плавного появления
+    },
+  );
+
+  // Начинаем наблюдать за каждым элементом
+  items.forEach((item) => {
+    observer.observe(item);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const heart = document.querySelector(".heartbig");
+  const calendarBlock = document.querySelector(".box-calendar");
+
+  if (!heart || !calendarBlock) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Добавляем класс для появления
+          heart.classList.add("visible");
+
+          // Опционально: добавляем пульсацию через небольшую задержку
+          setTimeout(() => {
+            heart.classList.add("pulse");
+          }, 300);
+
+          // Отключаем наблюдение, чтобы анимация сработала только 1 раз
+          observer.unobserve(calendarBlock);
+        }
+      });
+    },
+    {
+      threshold: 0.3, // 30% блока должно быть видно
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  observer.observe(calendarBlock);
+});

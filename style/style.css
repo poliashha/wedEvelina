@@ -195,6 +195,25 @@ body {
   text-transform: uppercase;
 }
 
+.box-text {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Класс для видимых элементов */
+.box-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Добавляем задержку для каждого элемента (задаётся в JS) */
+.box-text:nth-child(1) { transition-delay: 0s; }
+.box-text:nth-child(2) { transition-delay: 0.2s; }
+.box-text:nth-child(3) { transition-delay: 0.4s; }
+.box-text:nth-child(4) { transition-delay: 0.6s; }
+.box-text:nth-child(5) { transition-delay: 0.8s; }
+
 .dresscode {
   margin-top: -60px;
 }
@@ -625,7 +644,24 @@ body {
   text-decoration: none;
 }
 
+.box-calendar{
+  position: relative;
+}
 
+.heartbig{
+  position: absolute;
+  z-index: 2;
+  top:32px;
+  left: 104px;
+  opacity: 0;
+  transform: scale(0.5) ;
+  transition: all 1.2s ease;
+}
+
+.heartbig.visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
 
 .inst-href object {
   pointer-events: none;
@@ -645,12 +681,6 @@ body {
     aspect-ratio: 412 / 83;
   }
 
-  .line {
-    max-width: 412px;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 412 / 197;
-  }
 
   .cal {
     max-width: 412px;
